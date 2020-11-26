@@ -2,7 +2,7 @@
 <resources>
   <error id="100">
     <description>Quantidade incorreta de argumentos de execução.</description>
-    <fix>Verifique o comando utilizado para executar o software.</fix>
+    <fix>Verifique o comando utilizado para executar o software. (Nome de arquivo não podem conter espaço)</fix>
   </error>
   <error id="110">
     <description>Arquivo em formato não suportado.</description>

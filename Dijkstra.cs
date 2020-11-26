@@ -1,13 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Dijkstra.Model;
+﻿using Dijkstra.Model;
 
 namespace Dijkstra {
   class Dijkstra {
+    /// <summary>
+    /// Valor que representa o infinito
+    /// </summary>
     private int infiniteValue = -1;
+
+    /// <summary>
+    /// A quantidade total de nós
+    /// </summary>
     private int nodesAmount;
 
+    /// <summary>
+    /// A lista de nós
+    /// </summary>
     private Node[] nodes;
 
     public Dijkstra (int[,] matrix) {

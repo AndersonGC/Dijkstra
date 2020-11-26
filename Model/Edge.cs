@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dijkstra.Model {
+﻿namespace Dijkstra.Model {
   class Edge {
     /// <summary>
     /// O peso da aresta

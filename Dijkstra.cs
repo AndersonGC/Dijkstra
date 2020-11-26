@@ -76,44 +76,17 @@ namespace Dijkstra {
           }
 
           // Se a aresta já existe, ignoramos
-          if(nodes[rowIndex].ContainsEdgeTo(colIndex) || nodes[colIndex].ContainsEdgeTo(rowIndex)) {
+          if(nodes[rowIndex].ContainsEdgeTo(colIndex)) {
             continue;
           }
 
           // Se o valor for menor que o valor do infinito existe uma aresta
           if(matrix[rowIndex,colIndex] < this.infiniteValue) {
-            // Neste ponto duas situações podem ocorrer, a aresta ser não direcionada
-            //  ou direcionada. Isso é verificado comparando o peso da posição ij com
-            //  o peso da posição ji.
-            if(matrix[rowIndex,colIndex] == matrix[colIndex, rowIndex]) {
-              // Não direcionado, basta criar a aresta normalmente
-              // Cria a aresta ij
-              Edge edgeIJ = new Edge(matrix[rowIndex,colIndex],colIndex);
+            // Cria a aresta
+            Edge edge = new Edge(matrix[rowIndex,colIndex],colIndex);
 
-              // Adiciona a aresta ij no nó i
-              this.nodes[rowIndex].AddEdge(edgeIJ);
-
-              // Cria a aresta ji
-              Edge edgeJI = new Edge(matrix[colIndex,rowIndex],rowIndex);
-
-              // Adiciona a aresta ij no nó i
-              this.nodes[colIndex].AddEdge(edgeJI);
-            } else {
-              // Direcionado. Neste caso a aresta só será criada em uma direção
-              if(matrix[rowIndex, colIndex] > matrix[colIndex, rowIndex]) {
-                // Cria a aresta ij
-                Edge edgeIJ = new Edge(matrix[rowIndex,colIndex],colIndex);
-
-                // Adiciona a aresta ij no nó i
-                this.nodes[rowIndex].AddEdge(edgeIJ);
-              } else {
-                // Cria a aresta ji
-                Edge edgeJI = new Edge(matrix[colIndex,rowIndex],rowIndex);
-
-                // Adiciona a aresta ij no nó i
-                this.nodes[colIndex].AddEdge(edgeJI);
-              }
-            }
+            // Adiciona a aresta ij no nó i
+            this.nodes[rowIndex].AddEdge(edge);
           }
         }
       }

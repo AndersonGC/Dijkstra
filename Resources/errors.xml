@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <error id="100">
+    <description>Quantidade incorreta de argumentos de execução.</description>
+    <fix>Verifique o comando utilizado para executar o software.</fix>
+  </error>
+  <error id="110">
+    <description>Arquivo em formato não suportado.</description>
+    <fix>Insira como parâmetro um arquivo simples de texto (.txt).</fix>
+  </error>
+  <error id="120">
+    <description>Nó de origem não é um número.</description>
+    <fix>Insira um número como segundo parâmetro da aplicação.</fix>
+  </error>
+  <error id="121">
+    <description>Nó de destino não é um número.</description>
+    <fix>Insira um número como terceiro parâmetro da aplicação.</fix>
+  </error>
+  <error id="122">
+    <description>Nó de origem não existe no grafo.</description>
+    <fix>Insira um número que seja menor que a quantidade de colunas e linhas da matriz.</fix>
+  </error>
+  <error id="123">
+    <description>Nó de destino não existe no grafo.</description>
+    <fix>Insira um número que seja menor que a quantidade de colunas e linhas da matriz.</fix>
+  </error>
+  <error id="200">
+    <description>Arquivo não encontrado.</description>
+    <fix>Verifique se o nome do arquivo está correto e se o arquivo se encontra neste diretório.</fix>
+  </error>
+  <error id="201">
+    <description>Arquivo vazio.</description>
+    <fix>Verifique o conteúdo do arquivo.</fix>
+  </error>
+  <error id="210">
+    <description>A matriz não possui o mesmo número de linhas e colunas.</description>
+    <fix>Verifique se todas as linhas e colunas possuem o mesmo tamanho.</fix>
+  </error>
+  <error id="220">
+    <description>Somente números são aceitos na matriz.</description>
+    <fix>Verifique se nenhum valor no arquivo da matriz é não numérico.</fix>
+  </error>
+  <error id="221">
+    <description>Valores negativos não são aceitos.</description>
+    <fix>Verifique se nenhum valor no arquivo da matriz é negativo.</fix>
+  </error>
+  <error id="300">
+    <description>Caminho não existe.</description>
+    <fix>-</fix>
+  </error>
+  <error id="999">
+    <description>Erro desconhecido.</description>
+    <fix>Favor entrar em contato com o desenvolvedor.</fix>
+  </error>
+</resources>

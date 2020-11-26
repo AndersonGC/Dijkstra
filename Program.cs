@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Dijkstra.Utils;
 
 namespace Dijkstra {
   class Program {
@@ -71,7 +72,6 @@ namespace Dijkstra {
         // Encerra a aplicação com código 0 (Sucesso)
         Environment.Exit(0);
       }
-
     }
 
     /// <summary>
@@ -79,8 +79,20 @@ namespace Dijkstra {
     /// </summary>
     /// <param name="errorCode">O código de erro a ser exibido</param>
     private static void ExitWithErrorCode(int errorCode) {
+      // Declara as variaveis de descrição 
+      string description;
+
+      // Obtém as informações do erro
+      bool found = XMLReader.LoadErrorData(errorCode,out description);
+
+      // Se não encontrou o status de erro
+      if(!found) {
+        // Define o código de erro como 999 (Erro desconhecido)
+        errorCode = 999;
+      }
+
       // Imprime uma mensagem de erro
-      Console.WriteLine("Erro " + errorCode + " - Confira o Readme para mais informações");
+      Console.WriteLine("Erro " + errorCode + " - " + description);
 
       // Encerra a execução
       Environment.Exit(errorCode);

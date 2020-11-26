@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace Dijkstra {
@@ -14,7 +14,7 @@ namespace Dijkstra {
       string fileName = args[0];
 
       // Se o nome não segue o formato correto (*.txt)
-      Regex rx = new Regex(@"(.{1,})(\.txt)", RegexOptions.IgnoreCase);
+      Regex rx = new Regex(@"(.{1,})(\.txt)",RegexOptions.IgnoreCase);
       if(!rx.IsMatch(fileName)) {
         // Encerra a aplicação com código 110
         ExitWithErrorCode(110);
@@ -31,9 +31,15 @@ namespace Dijkstra {
       // Obtém o nó de origem
       int origin;
       // Se falha ao realizar o parse do argumento na variável de origem
-      if(!int.TryParse(args[1], out origin)) {
+      if(!int.TryParse(args[1],out origin)) {
         // Encerra a aplicação com código 120
         ExitWithErrorCode(120);
+      }
+
+      // Se o nó de origem não existir no grafo
+      if(origin < 0 || origin > matrix.GetLength(0)) {
+        // Encerra a aplicação com código 122
+        ExitWithErrorCode(122);
       }
 
       // Obtém o nó de destino
@@ -44,11 +50,28 @@ namespace Dijkstra {
         ExitWithErrorCode(121);
       }
 
-      // TODO: Calcula o caminho pelo algoritmo de Djikstra
-      string path = "6 5 2 0 ";
+      // Se o nó de destino não existir no grafo
+      if(destination < 0 || destination > matrix.GetLength(0)) {
+        // Encerra a aplicação com código 123
+        ExitWithErrorCode(123);
+      }
 
-      // Imprime o resultado na tela
-      Console.WriteLine(path);
+      // Calcula o caminho pelo algoritmo de Djikstra
+      Dijkstra dijkstra = new Dijkstra(matrix);
+      string path = dijkstra.CalculatePath(origin, destination);
+
+      // Se o caminho não foi encontrado...
+      if(path.Equals("N")) {
+        // Encerra a aplicação com código 300
+        ExitWithErrorCode(300);
+      } else {
+        // Imprime o resultado na tela
+        Console.WriteLine(path);
+
+        // Encerra a aplicação com código 0 (Sucesso)
+        Environment.Exit(0);
+      }
+
     }
 
     /// <summary>

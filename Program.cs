@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.RegularExpressions;
 
 namespace Dijkstra {
@@ -20,7 +20,13 @@ namespace Dijkstra {
         ExitWithErrorCode(110);
       }
 
-      // TODO: Abre o arquivo e carrega a matriz de arestas
+      // Abre o arquivo e carrega a matriz de arestas
+      int[,] matrix;
+      int status = FileReader.ReadMatrixFile(fileName,out matrix);
+      if(status != 0) {
+        // Encerra a aplicação com o código do erro
+        ExitWithErrorCode(status);
+      }
 
       // Obtém o nó de origem
       int origin;
